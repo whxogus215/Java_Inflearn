@@ -23,11 +23,18 @@ public class Calendar {
 
 		Calendar cal = new Calendar();
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("달을 입력하세요.");
-		int monthNum = scanner.nextInt();
+		
+		System.out.println("반복횟수를 입력하세요.");
+		int repeat = scanner.nextInt();
+		
+		for (int i = 0; i< repeat; i++) {
+			System.out.println("달을 입력하세요.");
+			int monthNum = scanner.nextInt();
+			System.out.printf("%d월은 %d일까지 있습니다.\n", monthNum, cal.getMaxDaysOfMonth(monthNum));
+		}
+		System.out.println("반복 종료");
 
-		System.out.printf("%d월은 %d일까지 있습니다.\n", monthNum, cal.getMaxDaysOfMonth(monthNum));
-		cal.printSampleCalendar();
+//		cal.printSampleCalendar();
 
 		scanner.close();
 
