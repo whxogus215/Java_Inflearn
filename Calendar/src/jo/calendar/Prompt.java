@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Prompt {
 	
-	private final static String PROMPT = "cal> ";
-	
 	
 	public void runPrompt() {
 		
@@ -14,10 +12,14 @@ public class Prompt {
 		
 		// 특정 횟수가 없으면 while, 있으면 for문 사용!
 		int monthNum = 0;
+		int year = 2017;
 		
 		while (true) {
+			System.out.println("년도를 입력하세요.");
+			System.out.print("YEAR> ");
+			year = scanner.nextInt();
 			System.out.println("달을 입력하세요.");
-			System.out.print(PROMPT);
+			System.out.print("MONTH> ");
 			monthNum = scanner.nextInt();
 			if (monthNum == -1) {
 				break;
@@ -27,7 +29,7 @@ public class Prompt {
 				continue;
 			}
 			
-			cal.printCalendar(2022, monthNum);
+			cal.printCalendar(year, monthNum);
 		}
 		System.out.println("반복 종료");
 		
@@ -38,12 +40,10 @@ public class Prompt {
 	}
 
 	public static void main(String[] args) {
-		//셀 실행
-		Prompt p = new Prompt();
-		p.runPrompt();
-		 
-		}
+		
+	}
 	
 		
 
 }
+	
