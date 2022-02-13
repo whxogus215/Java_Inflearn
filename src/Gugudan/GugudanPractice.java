@@ -28,6 +28,8 @@ public class GugudanPractice {
 			System.out.println();
 		}
 		
+		scanner.close();
+		
 	}
 
 }
