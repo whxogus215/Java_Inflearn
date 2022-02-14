@@ -31,7 +31,6 @@ public class Prompt {
 		// 특정 횟수가 없으면 while, 있으면 for문 사용!
 		int monthNum = -1;
 		int year = 0;
-		int weekday = 0;
 		
 		while (true) {
 			System.out.println("년도를 입력하세요.(exit : -1)");
@@ -40,19 +39,16 @@ public class Prompt {
 			if (year == -1)
 				break;
 			
-			System.out.println("달을 입력하세요.");
+			System.out.println("월을 입력하세요.");
 			System.out.print("MONTH> ");
 			monthNum = scanner.nextInt();
-			System.out.println("첫번째 요일을 입력하세요(su, mo, tu, we, th, fr, sa).");
-			String startDay = scanner.next();
-			weekday = parseDay(startDay);
 			
 			if (monthNum > 12 || monthNum < 1) {
 				System.out.println("잘못된 입력입니다.");
 				continue;
 			}
 			
-			cal.printCalendar(year, monthNum, weekday);
+			cal.printCalendar(year, monthNum);
 		}
 		System.out.println("반복 종료");
 		
