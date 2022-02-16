@@ -22,40 +22,72 @@ public class Prompt {
 			return 0;
 	}
 	
+	public void printMenu() {
+		
+		System.out.println("+----------------------------+");
+		System.out.println("| 1. 일정 등록 ");
+		System.out.println("| 2. 일정 검색 ");
+		System.out.println("| 3. 달력 보기 ");
+		System.out.println("| h. 도움말 q. 종료 ");
+		System.out.println("+----------------------------+");
+//		System.out.println("명령 (1, 2, 3, h, q)");
+		
+	}
+	
 	public void runPrompt() {
 		
+		printMenu();
 		
 		Calendar cal = new Calendar();
 		Scanner scanner = new Scanner(System.in);
 		
 		// 특정 횟수가 없으면 while, 있으면 for문 사용!
-		int monthNum = -1;
-		int year = 0;
+		
 		
 		while (true) {
-			System.out.println("년도를 입력하세요.(exit : -1)");
-			System.out.print("YEAR> ");
-			year = scanner.nextInt();
-			if (year == -1)
-				break;
-			
-			System.out.println("월을 입력하세요.");
-			System.out.print("MONTH> ");
-			monthNum = scanner.nextInt();
-			
-			if (monthNum > 12 || monthNum < 1) {
-				System.out.println("잘못된 입력입니다.");
-				continue;
-			}
-			
-			cal.printCalendar(year, monthNum);
+			System.out.println("명령 (1, 2, 3, h, q)");
+			String cmd = scanner.next();
+			if (cmd.equals("1")) cmdRegister();
+			else if (cmd.equals("2")) cmdSearch();
+			else if (cmd.equals("3")) cmdCal(scanner, cal);
+			else if (cmd.equals("h")) printMenu();
+			else if (cmd.equals("q")) break;
 		}
-		System.out.println("반복 종료");
-		
-//		cal.printSampleCalendar();
-		
+			
+		System.out.println("Thank you. Bye~");
 		scanner.close();
 	
+	}
+
+	private void cmdCal(Scanner s, Calendar c) {
+		int month = -1;
+		int year = 0;
+		System.out.println("년도를 입력하세요.(exit : -1)");
+		System.out.print("YEAR> ");
+		year = s.nextInt();
+		
+		System.out.println("월을 입력하세요.");
+		System.out.print("MONTH> ");
+		month = s.nextInt();
+		
+		if (month > 12 || month < 1) {
+			System.out.println("잘못된 입력입니다.");
+			return; // 잘못 입력했을 경우 메소드 종료
+		}
+		
+		
+		c.printCalendar(year, month);
+	}
+	
+
+	private void cmdSearch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void cmdRegister() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public static void main(String[] args) {
