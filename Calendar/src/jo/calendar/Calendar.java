@@ -64,9 +64,7 @@ public class Calendar {
 
 	private int getWeekDay(int year, int month, int day) {
 		int syear = 1970;
-		int smonth = 1;
-		int sday = 1;
-		int standardWeekday = 3;  // 1970/Jan/1st = Thursday
+		final int STANDARD_WEEKDAY = 3;  // 1970/Jan/1st = Thursday
 		
 		int count = 0;
 		
@@ -80,16 +78,14 @@ public class Calendar {
 			count += delta;
 		}
 		
-		count += day - 1;
+		count += day;
 		
-		return count;
+		int weekday = (count+STANDARD_WEEKDAY) % 7;
+		return weekday;
 	}
 
 	public static void main(String[] args) {
 
-		//셀 실행
-				Prompt p = new Prompt();
-				p.runPrompt();
 				 
 				}
 	}
